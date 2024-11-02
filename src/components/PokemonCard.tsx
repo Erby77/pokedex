@@ -1,28 +1,19 @@
-const PokemonCard = () => {
-	const pokemon = [
-		{
-			name: "Bulbasaur",
-			imgSrc:
-				"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-		},
-		{
-			name: "Charamander",
-			imgSrc:
-				"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-		},
-		{
-			name: "mew",
-		},
-	];
+interface PokemonCardProps {
+	pokemonData: {
+		imgSrc?: string; // ici "?" signifie "optionnel"
+		name: string;
+	};
+}
 
+const PokemonCard = ({ pokemonData }: PokemonCardProps) => {
 	return (
 		<figure>
-			{pokemon[0].imgSrc !== undefined ? (
-				<img src={pokemon[0].imgSrc} alt={pokemon[0].name} />
+			{pokemonData.imgSrc !== undefined ? (
+				<img src={pokemonData.imgSrc} alt={pokemonData.name} />
 			) : (
 				<p>???</p>
 			)}
-			<h1>{pokemon[0].name}</h1>
+			<h1>{pokemonData.name}</h1>
 		</figure>
 	);
 };
