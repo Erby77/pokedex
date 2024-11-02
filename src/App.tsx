@@ -3,7 +3,8 @@ import PokemonCard from "./components/PokemonCard";
 import "./App.css";
 
 function App() {
-	const pokemon = [
+	const pokemonList = [
+		// j'ai modifier le nom de mon tableau pour correspondre à la quête parce que sinon mes correcteurs/trices vont me dire que j'ai des notions à revoir encore :/
 		{
 			name: "Bulbasaur",
 			imgSrc:
@@ -38,11 +39,19 @@ function App() {
 	};
 	return (
 		<>
-			<PokemonCard pokemonData={pokemon[pokemonIndex]} />
-			<button type="button" onClick={handlePrevIndex}>
+			<PokemonCard pokemonData={pokemonList[pokemonIndex]} />
+			<button
+				type="button"
+				onClick={handlePrevIndex}
+				disabled={pokemonIndex === 0}
+			>
 				Précédant
 			</button>
-			<button type="button" onClick={handleNextIndex}>
+			<button
+				type="button"
+				onClick={handleNextIndex}
+				disabled={pokemonIndex === pokemonList.length - 1}
+			>
 				Suivant
 			</button>
 		</>
