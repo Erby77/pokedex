@@ -1,10 +1,11 @@
 import { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
 import "./App.css";
 
 function App() {
 	const pokemonList = [
-		// j'ai modifier le nom de mon tableau pour correspondre à la quête parce que sinon mes correcteurs/trices vont me dire que j'ai des notions à revoir encore :/
+		// ce tableau restera pokemonList
 		{
 			name: "Bulbasaur",
 			imgSrc:
@@ -29,31 +30,16 @@ function App() {
 			name: "mew",
 		},
 	];
-
-	const [pokemonIndex, setPokemonIndex] = useState(0); // state
-	const handlePrevIndex = () => {
-		setPokemonIndex(pokemonIndex - 1);
-	};
-	const handleNextIndex = () => {
-		setPokemonIndex(pokemonIndex + 1);
-	};
+	// Fonction de re-rendu de la page avec un useState
+	const [pokemonIndex, setPokemonIndex] = useState(0);
 	return (
 		<>
 			<PokemonCard pokemonData={pokemonList[pokemonIndex]} />
-			<button
-				type="button"
-				onClick={handlePrevIndex}
-				disabled={pokemonIndex === 0}
-			>
-				Précédant
-			</button>
-			<button
-				type="button"
-				onClick={handleNextIndex}
-				disabled={pokemonIndex === pokemonList.length - 1}
-			>
-				Suivant
-			</button>
+			<NavBar
+				pokemonIndex={pokemonIndex}
+				setPokemonIndex={setPokemonIndex}
+				pokemonData={pokemonList}
+			/>
 		</>
 	);
 }
