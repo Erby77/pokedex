@@ -1,4 +1,5 @@
 interface Pokemon {
+	id: number;
 	imgSrc?: string; // ici "?" signifie "optionnel"
 	name: string;
 }
@@ -9,34 +10,18 @@ interface NavBarProps {
 	pokemonData: Pokemon[];
 }
 
-const NavBar = ({
-	pokemonIndex,
-	setPokemonIndex,
-	pokemonData,
-}: NavBarProps) => {
-	const handlePrevIndex = () => {
-		setPokemonIndex(pokemonIndex - 1);
-	};
-	const handleNextIndex = () => {
-		setPokemonIndex(pokemonIndex + 1);
-	};
-
+const NavBar = ({ setPokemonIndex, pokemonData }: NavBarProps) => {
 	return (
 		<>
-			<button
-				type="button"
-				onClick={handlePrevIndex}
-				disabled={pokemonIndex === 0}
-			>
-				Précédant
-			</button>
-			<button
-				type="button"
-				onClick={handleNextIndex}
-				disabled={pokemonIndex === pokemonData.length - 1}
-			>
-				Suivant
-			</button>
+			{pokemonData.map((pokemon) => (
+				<button
+					key={pokemon.id}
+					type="button"
+					onClick={() => setPokemonIndex(pokemon.id)}
+				>
+					{pokemon.name}
+				</button>
+			))}
 		</>
 	);
 };
