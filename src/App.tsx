@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
 import "./App.css";
@@ -37,6 +37,10 @@ function App() {
 	];
 	// Fonction de re-rendu de la page avec un useState
 	const [pokemonIndex, setPokemonIndex] = useState(0);
+
+	useEffect(() => {
+		alert("hello pokemon trainer");
+	}, []); // [] c'est un tableau de dépendance, c'est ici que l'on voudra écouter l'état pour rejouer le code
 
 	return (
 		<>
