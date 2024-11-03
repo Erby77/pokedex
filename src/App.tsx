@@ -37,6 +37,7 @@ function App() {
 	];
 	// Fonction de re-rendu de la page avec un useState
 	const [pokemonIndex, setPokemonIndex] = useState(0);
+
 	return (
 		<>
 			<NavBar
