@@ -15,9 +15,9 @@ const NavBar = ({ setPokemonIndex, pokemonData }: NavBarProps) => {
 		<>
 			{pokemonData.map((pokemon) => (
 				<button
-					key={pokemon.id}
 					type="button"
 					onClick={() => setPokemonIndex(pokemon.id)}
+					key={pokemon.id}
 				>
 					{pokemon.name}
 				</button>
