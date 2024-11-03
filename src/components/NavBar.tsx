@@ -11,12 +11,19 @@ interface NavBarProps {
 }
 
 const NavBar = ({ setPokemonIndex, pokemonData }: NavBarProps) => {
+	const handleClick = (element: Pokemon) => {
+		if (element.name === "Pikachu") {
+			alert("pika pikachu");
+		}
+		setPokemonIndex(element.id);
+	};
+
 	return (
 		<>
 			{pokemonData.map((pokemon) => (
 				<button
 					type="button"
-					onClick={() => setPokemonIndex(pokemon.id)}
+					onClick={() => handleClick(pokemon)}
 					key={pokemon.id}
 				>
 					{pokemon.name}
